@@ -1,0 +1,32 @@
+[
+	{
+		"question": "Do you like beans?",
+		"answers": [
+			"yes",
+			"no",
+			"not at all",
+			"absolutely!"
+		],
+		"correct": [0, 3]
+	},
+	{
+		"question": "What is 1+1?",
+		"answers": [
+			"1",
+			"2",
+			"5",
+			"4"
+		],
+		"correct": [2]
+	},
+	{
+		"question": "I got the horses in the",
+		"answers": [
+			"sack",
+			"back",
+			"idk",
+			"nowhere"
+		],
+		"correct": [0]
+	}
+]

@@ -1,0 +1,15 @@
+ ________________________________________ 
+/ Unix is like a toll road on which you  \
+| have to stop every 50 feet to pay      |
+| another nickel. But hey! You only feel |
+| 5 cents poorer each time.              |
+|                                        |
+| -- Larry Wall in                       |
+\ <1992Aug13.192357.15731@netlabs.com>   /
+ ---------------------------------------- 
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+[?2004h]0;fish /home/vincent/Documents/code/kaBoot[30m(B[m[92mvincent(B[m@(B[mTUMBLEWEED(B[m [32m~/D/c/kaBoot(B[m (master)(B[m> [K[42C

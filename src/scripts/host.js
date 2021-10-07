@@ -45,6 +45,9 @@ var listener = {
 				console.log(m.message.answer);
 				if (users[m.message.username].correct[current_question] == null) {
 					users[m.message.username].correct[current_question] = game[current_question].correct.includes(m.message.answer);
+					
+					// flip answer correctness randomly
+					if (Math.random() > 0.6) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
 				}
 			}
 		}
@@ -93,4 +96,8 @@ function next_question() {
 		channel: game_pin + "events",
 		message: "question"
 	});
+}
+
+function randint(min, max) {
+	return Math.floor(Math.random() * max) + min;
 }

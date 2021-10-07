@@ -3,6 +3,10 @@
 		{{game_pin}}
 	</div>
 	<div id="players">
-		
+		{{#each players}}
+			<span class="player_name">
+				{{this}}
+			</span>
+		{{/players}}
 	</div>
 </div>

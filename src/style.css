@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root {
+	--correct-color: #21af29;
+	--incorrect-color: #ff2129;
+	--yellow-color: #df9f10;
+	--blue-color: #0698ba;
+	--purple-color: #54008a;
+}
+
+body {
+	color: white;
+	user-select: none;
+	font-family: "Noto Sans", sans-serif;
+}
+
+.hidden {
+	display: none;
+}
+
+.screen {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.correct {
+	background: var(--correct-color);
+}
+
+.incorrect {
+	background: var(--incorrect-color);
+}
+
+.blue {
+	background: var(--blue-color);
+}
+
+.yellow {
+	background: var(--yellow-color);
+}
+
+.purple {
+	background: var(--purple-color);
+}
+
+@keyframes cyclecolors {
+	0% {
+		background: var(--blue-color);
+	}
+	25% {
+		background: var(--correct-color);
+	}
+	50% {
+		background: var(--yellow-color);
+	}
+	75% {
+		background: var(--incorrect-color);
+	}
+	100% {
+		background: var(--blue-color);
+	}
+}
+
+.cyclecolors {
+	animation: cyclecolors 5.5s infinite;
+}
+
+.alert_screen {
+	font-size: 2.5em;
+	font-size: max(min(10vw, 2.5em), 25px);
+}
+
+.screen > div {
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+	position: fixed;
+}
+
+#answer-container {
+	width: calc(100% - 0.8em);
+	height: calc(100% - 0.8em);
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.5em;
+}
+
+.answerbutton {
+	transition: 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.answerbutton:hover, .button:hover {
+	filter: brightness(1.15);
+}
+
+.form {
+	background: white;
+	border-radius: 6px;
+	padding: 15px;
+}
+
+#screen-joingame > div {
+	max-width: 88%;
+}
+
+input {
+	color: #19202c;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 1.45em;
+	outline: 0;
+	transition: 0.2s;
+	border: 0.125rem solid #69606c;
+	border-radius: 4px;
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+input:focus {
+	border: 0.125rem solid #19202c;
+
+}
+
+.button {
+	border-radius: 4px;
+	transition: 0.1s;
+	text-align: center;
+	background: #21202c;
+	cursor: pointer;
+	padding: 10px;
+}

@@ -3,8 +3,52 @@
 	<head>
 		<script src="scripts/client.js"></script>
 		<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.33.0.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height" />
+
+		<link rel="stylesheet" href="style.css">
+		<title>
+			ka🅱️oot
+		</title>
 	</head>
 	<body>
-		
+		<div class="screen hidden" id="screen-pickanswer">
+			<div id="answer-container">
+				<div class="answerbutton incorrect" onclick="answer_question(0)">
+					there are no shapes
+				</div>
+				<div class="answerbutton blue" onclick="answer_question(1)">
+					so just choose based on the colors
+				</div>
+				<div class="answerbutton yellow" onclick="answer_question(2)">
+					idiot
+				</div>
+				<div class="answerbutton correct" onclick="answer_question(3)">
+					dumbass
+				</div>
+			</div>
+		</div>
+		<div class="hidden screen cyclecolors alert_screen" id="screen-condescending">
+			<div id="condescending-message">
+				are you a dumbass?
+			</div>
+		</div>
+		<div class="hidden screen correct alert_screen" id="screen-correct">
+			<div id="answer-message">
+				you are a dumbass
+			</div>
+		</div>
+		<div class="screen purple" id="screen-joingame">
+			<div>
+				<h1>
+					Join a ka🅱️oot
+				</h1>
+				<div class="form">
+					<input placeholder="Game Pin" inputmode="numeric" patterntype="[0-9]*" id="gamepin" onkeypress="checkinput(event)">
+					<div class="button" id="joinbutton" onclick="join_button_pressed()">
+						Enter
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

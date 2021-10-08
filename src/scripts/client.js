@@ -60,6 +60,10 @@ function handle_message_event(m) {
 			console.log("question asked");
 			show_screen("pickanswer");
 		}
+		if (m.message == "getready") {
+			document.querySelector("#condescending-message").innerHTML = "get ready...";
+			show_screen("condescending");
+		}
 	}
 	if (m.channel.endsWith(username + "answer_right")) {
 		let right_answers = [
@@ -127,10 +131,11 @@ function answer_question(index) {
 	});
 	
 	let passive_aggressions = [
-			"are you a dumbass?",
-			"sure that was right?",
-			"lucky or smart?",
-			"I bet you're gonna get it wrong because you're stupid"
+		"are you a dumbass?",
+		"sure that was right?",
+		"lucky or smart?",
+		"I bet you're gonna get it wrong because you're stupid",
+		"was that a misclick?"
 	];
 	document.querySelector("#condescending-message").innerHTML = randarr(passive_aggressions);
 	show_screen("condescending");
@@ -176,4 +181,8 @@ function join_button_pressed() {
 
 function checkinput(e) {
 	if (e.keyCode == 13) document.querySelector("#joinbutton").click();
+}
+
+function init() {
+	document.querySelector("#gamepin").value = "";
 }

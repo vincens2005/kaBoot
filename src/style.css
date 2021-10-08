@@ -74,7 +74,7 @@ body {
 	font-size: max(min(10vw, 2.5em), 25px);
 }
 
-.screen > div {
+.screen > div:not([class]) {
 	transform: translate(-50%, -50%);
 	top: 50%;
 	left: 50%;
@@ -84,10 +84,21 @@ body {
 #answer-container {
 	width: calc(100% - 0.8em);
 	height: calc(100% - 0.8em);
+}
+
+#answer-container, .answer_cont {
 	padding: 10px;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 0.5em;
+}
+
+.answer_cont {
+	height: 75%;
+}
+
+.ohidden {
+	opacity: 0;
 }
 
 .answerbutton {
@@ -128,14 +139,56 @@ input {
 
 input:focus {
 	border: 0.125rem solid #19202c;
+}
 
+.blacktext {
+	color: #21202c;
 }
 
 .button {
+	font-size: 16px;
 	border-radius: 4px;
 	transition: 0.1s;
 	text-align: center;
 	background: #21202c;
 	cursor: pointer;
 	padding: 10px;
+}
+
+.controlbutton {
+	position: fixed;
+	top: 30px;
+	right: 30px;
+}
+
+.gamepin {
+	background: white;
+	color: #19202c;
+	border-radius: 6px;
+	padding: 5px;
+}
+
+#playernames {
+	padding: 100px 200px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	justify-content: space-between;
+}
+
+#playernames > div {
+	font-size: 20px;
+	animation: popout 0.3s;
+}
+
+@keyframes popout {
+	0% {
+		transform: scale(0);
+	}
+	75% {
+		transform: scale(1.3);
+	}
+	100% {
+		transform: scale(1);
+	}
 }

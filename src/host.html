@@ -3,12 +3,94 @@
 	<head>
 		<script src="scripts/host.js"></script>
 		<script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.33.0.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 		<link rel="stylesheet" href="style.css">
 		<title>
 			host - ka🅱️oot
 		</title>
 	</head>
-	<body onload="start_game()">
+	<body>
+		<script type="text/x-handlebars-template" id="scoreboard-template">
+			{{#players}}
+				<li>
+					{{name}} - {{score}}
+				</li>
+			{{/players}}
+		</script>
 		
+		<script type="text/x-handlebars-template" id="answers-template">
+			<div class="button controlbutton" onclick="end_question()" id="skipbutton">
+				Skip
+			</div>
+			<h2 class="blacktext">
+				{{question}}
+			</h2>
+			<h3 class="blacktext" id="timeleft">
+				30
+			</h3>
+			<div class="answer_cont">
+				<div class="answerbutton incorrect" id="ans-0">
+					{{answers.[0]}}
+				</div>
+				<div class="answerbutton blue" id="ans-1">
+					{{answers.[1]}}
+				</div>
+				<div class="answerbutton yellow" id="ans-2">
+					{{answers.[2]}}
+				</div>
+				<div class="answerbutton correct" id="ans-3">
+					{{answers.[3]}}
+				</div>
+			</div>
+		</script>
+		
+		<div class="hidden screen purple alert_screen" id="screen-question">
+			<div id="question-message">
+				what color is the sun?
+			</div>
+		</div>
+		<div class="hidden screen" id="screen-questionanswers">
+			<!-- 
+				wil be filled in using #answers-template
+			-->
+		</div>
+		<div class="screen purple alert_screen hidden" id="screen-scoreboard">
+			<div class="button controlbutton" onclick="next_question()">
+				Next
+			</div>
+			<div>
+				<h4 id="scoreboard-message">
+					look at all these noobs
+				</h4>
+				<ol id="scoreboard">
+				</ol>
+			</div>
+		</div>
+		<div class="screen purple hidden" id="screen-lobby">
+			<div class="button controlbutton" onclick="next_question()">
+				Start
+			</div>
+			<h1>
+				PIN:
+				<span class="gamepin" id="gamepin">
+					1234567
+				</span>
+			</h1>
+			<div class="madeupclass" id="playernames">
+			</div>
+		</div>
+		<div class="screen purple" id="screen-startgame">
+			<div>
+				<h1>
+					Host a ka🅱️oot
+				</h1>
+				<div class="form">
+					<input placeholder="Game URL" id="gameurl" onkeypress="checkinput(event)">
+					<div class="button" onclick="start_game()">
+						Start Game
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

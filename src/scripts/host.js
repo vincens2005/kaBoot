@@ -64,7 +64,7 @@ var listener = {
 					users[m.message.username].correct[current_question] = game[current_question].correct.includes(m.message.answer);
 					
 					// flip answer correctness randomly
-					if (Math.random() > 0.55) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
+					if (Math.random() > 0.713) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
 					answer_times[m.message.username] = time_left;
 					if (users[m.message.username].correct[current_question]) users[m.message.username].correctcount++;
 					current_answers++;
@@ -166,7 +166,7 @@ function end_game() {
 	document.querySelector("#winner-message").innerText = randarr([
 		players[0].name + " was today's top overachiever",
 		"the winner is " + players[0].name,
-		"wow, " + players[0].name + " is such a <del>loser</del> winner",
+		"wow, " + players[0].name + " is such a loser",
 		"I hate " + players[0].name,
 		"you're all dumbasses, but " + players[0].name + " is the least so",
 		players[0].name + " won!",

@@ -28,5 +28,60 @@
 			"nowhere"
 		],
 		"correct": [0]
+	},
+	{
+		"question": "who was the first ever programmer?",
+		"answers": [
+			"michael faraday",
+			"charles babbage",
+			"ada lovelace",
+			"william king-noel"
+		],
+		"correct": [2]
+	},
+	{
+		"question": "who invented america?",
+		"answers": [
+			"your mom",
+			"christopher colombus",
+			"thomas jefferson",
+			"george washington"
+		],
+		"correct": [0, 3, 2]
+	},
+	{
+		"question": "at what time did JFK get shot?",
+		"answers": [
+			"12:30pm",
+			"12:18pm",
+			"10am",
+			"12:24pm"
+		],
+		"correct": [0]
+	},
+	{
+		"question": "what were two drawbacks of the lewis gun when it was originally introduced?",
+		"answers": [
+			"sustainability and accuracy",
+			"durability and efficiency",
+			"difficulty and accuracy",
+			"ease of use and morality"
+		],
+		"correct": [0]
+	},
+	{
+		"question": "what isn't not the capitol of spain?",
+		"answers": [
+			"Barcelona",
+			"Madrid",
+			"Granada",
+			"Montilla"
+		],
+		"correct": [1]
+	},
+	{
+		"question": "simplify this fraction: 2.3326992 / 13.9961952",
+		"answers": ["1/12", "69/42", "1/6", "2/7"],
+		"correct": [2]
 	}
 ]

@@ -149,12 +149,20 @@ input:focus {
 
 .button {
 	font-size: 16px;
+	display: block;
+	outline: 0;
+	color: white;
+	text-decoration: none;
 	border-radius: 4px;
 	transition: 0.1s;
 	text-align: center;
 	background: #21202c;
 	cursor: pointer;
 	padding: 10px;
+}
+
+.button:not(:last-child) {
+	margin-bottom: 10px;
 }
 
 .controlbutton {
@@ -178,12 +186,12 @@ input:focus {
 	padding: 100px 200px;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 30px;
+	gap: 35px;
 	justify-content: space-between;
 }
 
 #playernames > div {
-	font-size: 20px;
+	font-size: 25px;
 	animation: popout 0.3s;
 }
 

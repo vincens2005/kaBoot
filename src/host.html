@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		<div class="screen purple hidden" id="screen-lobby">
-			<div class="button controlbutton" onclick="next_question()">
+			<div class="button controlbutton ohidden" onclick="next_question()" id="startbutton">
 				Start
 			</div>
 			<h1>
@@ -89,6 +89,16 @@
 					<div class="button" onclick="start_game()">
 						Start Game
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="screen purple alert_screen hidden" id="screen-winner">
+			<div>
+				<div id="winner-message">
+					somebody won
+				</div>
+				<div class="smalltext" id="winner-score">
+					or not
 				</div>
 			</div>
 		</div>

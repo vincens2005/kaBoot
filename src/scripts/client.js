@@ -1,5 +1,5 @@
 var pubnub;
-var username = "ThiccGuy69"; // TODO: username picker and stuff
+var username;
 var game_key;
 var answer_channel;
 async function pubnub_join_event(game_pin) {
@@ -64,6 +64,33 @@ function handle_message_event(m) {
 			document.querySelector("#condescending-message").innerHTML = "get ready...";
 			show_screen("condescending");
 		}
+		if (m.message.startsWith("winner:")) {
+			let winner = atob(m.message.split("winner:")[1]);
+			document.querySelector("#screen-correct").classList.remove("incorrect");
+			document.querySelector("#screen-correct").classList.remove("correct");
+			if (winner == username) {
+				document.querySelector("#answer-message").innerHTML = randarr([
+					"you're the overachiever",
+					"you won",
+					"I'm very impressed.",
+					"you have won"
+				]);
+				document.querySelector("#screen-correct").classList.add("correct");
+			}
+			else {
+				document.querySelector("#answer-message").innerHTML = randarr([
+					"you're a loser",
+					"you suck",
+					"you are trash at this game",
+					"you're the biggest dumbass the world has ever seen",
+					"you are stupid.",
+					"dummy",
+					"next time don't be a dumbass"
+				]);
+				document.querySelector("#screen-correct").classList.add("incorrect");
+			}
+			show_screen("correct");
+		}
 	}
 	if (m.channel.endsWith(username + "answer_right")) {
 		let right_answers = [
@@ -84,7 +111,8 @@ function handle_message_event(m) {
 			"as evidenced by the fact that you answered this quesion incorrectly, you are a moron.",
 			"you're mom",
 			"your dumbassery levels are inordinately high",
-			"fuckwit"
+			"fuckwit",
+			"hey shitass, wanna see me speedrun?"
 		];
 		
 		let slow_answers = [
@@ -95,8 +123,6 @@ function handle_message_event(m) {
 		];
 		document.querySelector("#screen-correct").classList.remove("incorrect");
 		document.querySelector("#screen-correct").classList.remove("correct");
-		document.querySelector("#screen-correct").classList.remove("cyclecolors");
-
 		// 0 = no answer, 1 = wrong, 2 = correct
 		switch (m.message) {
 			case 1:

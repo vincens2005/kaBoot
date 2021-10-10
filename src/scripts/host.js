@@ -64,7 +64,7 @@ var listener = {
 					users[m.message.username].correct[current_question] = game[current_question].correct.includes(m.message.answer);
 					
 					// flip answer correctness randomly
-					if (Math.random() > 0.723) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
+					if (Math.random() > 0.653) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
 					answer_times[m.message.username] = time_left;
 					if (users[m.message.username].correct[current_question]) users[m.message.username].correctcount++;
 					current_answers++;
@@ -237,6 +237,10 @@ function show_screen(screen) {
 		}
 		document.querySelector("#screen-" + i).classList.add("hidden");
 	}
+}
+
+function checkinput(e) {
+	if (e.keyCode == 13) start_game();
 }
 
 function randint(min, max) {

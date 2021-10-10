@@ -26,7 +26,11 @@
 				{{question}}
 			</h2>
 			<h3 class="blacktext" id="timeleft">
-				30
+				{{#if timelimit}}
+					{{timelimit}}
+				{{else}}
+					15
+				{{/if}}
 			</h3>
 			<div class="answer_cont">
 				<div class="answerbutton incorrect" id="ans-0">
@@ -76,6 +80,9 @@
 					1234567
 				</span>
 			</h1>
+			<h4 id="join-message">
+				go to to to
+			</h4>
 			<div class="madeupclass" id="playernames">
 			</div>
 		</div>

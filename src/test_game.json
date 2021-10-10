@@ -17,7 +17,8 @@
 			"5",
 			"4"
 		],
-		"correct": [1]
+		"correct": [1],
+		"timelimit": 5
 	},
 	{
 		"question": "I got the horses in the",
@@ -47,7 +48,8 @@
 			"thomas jefferson",
 			"george washington"
 		],
-		"correct": [0, 3, 2]
+		"correct": [0, 3, 2],
+		"timelimit": 10
 	},
 	{
 		"question": "at what time did JFK get shot?",
@@ -82,6 +84,7 @@
 	{
 		"question": "simplify this fraction: 2.3326992 / 13.9961952",
 		"answers": ["1/12", "69/42", "1/6", "2/7"],
-		"correct": [2]
+		"correct": [2],
+		"timelimit": 3
 	}
 ]

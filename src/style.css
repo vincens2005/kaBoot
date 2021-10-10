@@ -6,6 +6,7 @@
 	--yellow-color: #df9f10;
 	--blue-color: #0698ba;
 	--purple-color: #54008a;
+	--black-color: #19202c;
 }
 
 body {
@@ -127,7 +128,7 @@ body {
 }
 
 input {
-	color: #19202c;
+	color: var(--black-color);
 	text-align: center;
 	margin-bottom: 10px;
 	font-size: 1.45em;
@@ -140,7 +141,7 @@ input {
 }
 
 input:focus {
-	border: 0.125rem solid #19202c;
+	border: 0.125rem solid var(--black-color);
 }
 
 .blacktext {
@@ -177,7 +178,7 @@ input:focus {
 
 .gamepin {
 	background: white;
-	color: #19202c;
+	color: var(--black-color);
 	border-radius: 6px;
 	padding: 5px;
 }

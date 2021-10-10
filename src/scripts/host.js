@@ -4,7 +4,7 @@ var users = {};
 var current_question = -1;
 var game;
 var answer_times = {};
-var time_left = 30;
+var time_left = 15;
 var countdown;
 var current_answers = 0;
 var listener = {
@@ -64,7 +64,7 @@ var listener = {
 					users[m.message.username].correct[current_question] = game[current_question].correct.includes(m.message.answer);
 					
 					// flip answer correctness randomly
-					if (Math.random() > 0.713) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
+					if (Math.random() > 0.723) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
 					answer_times[m.message.username] = time_left;
 					if (users[m.message.username].correct[current_question]) users[m.message.username].correctcount++;
 					current_answers++;
@@ -89,6 +89,7 @@ async function start_game() {
 	});
 	pubnub.addListener(listener);
 	document.querySelector("#gamepin").innerHTML = game_pin;
+	document.querySelector("#join-message").innerHTML = "go to " + new URL(location).host + " and enter the game pin to join"
 	show_screen("lobby");
 }
 
@@ -131,10 +132,10 @@ function get_top_players() {
 	}
 	players.sort((a, b) => {
 		if (a.score < b.score) {
-			return -1;
+			return 1;
 		}
 		if (a.score > b.score) {
-			return 1;
+			return -1;
 		}
 		return 0;
 	});
@@ -178,16 +179,19 @@ function end_game() {
 
 function next_question() {
 	answer_times = {};
-	time_left = 30;
 	current_answers = 0;
 	if (current_question == game.length - 1) return end_game();
 	current_question++;
+	time_left = game[current_question].timelimit || 15;
+	
 	document.querySelector("#question-message").innerHTML = game[current_question].question;
 	show_screen("question");
+	
 	pubnub.signal({
 		channel: game_pin + "events",
 		message: "getready"
 	});
+	
 	setTimeout(() => {
 		document.querySelector("#screen-questionanswers").innerHTML = "";
 		fill_template("answers-template", game[current_question], "screen-questionanswers");

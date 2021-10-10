@@ -35,10 +35,7 @@ async function join_game(game_pin) {
 		channel: game_pin + "joins"
 	});
 	let allowed_in = await pubnub_join_event(game_pin, username);
-	if (allowed_in == "0") {
-		console.log("please kindly go kill yourself");
-		return false;
-	}
+	if (allowed_in == "0") return false;
 	game_key = allowed_in;
 	console.log("game join accepted!!!");
 	
@@ -72,19 +69,25 @@ function handle_message_event(m) {
 				document.querySelector("#answer-message").innerHTML = randarr([
 					"you're the overachiever",
 					"you won",
-					"I'm very impressed.",
-					"you have won"
+					"your brain is slightly more advanced than those of the rest of the people in the room",
+					"you have slightly mediocre intelligence levels",
+					"I'm not very impressed.",
+					"you have won."
 				]);
 				document.querySelector("#screen-correct").classList.add("correct");
 			}
 			else {
 				document.querySelector("#answer-message").innerHTML = randarr([
 					"you're a loser",
+					"literally a goldfish is probably smarter than you.",
 					"you suck",
 					"you are trash at this game",
 					"you're the biggest dumbass the world has ever seen",
 					"you are stupid.",
+					"you are a dumbass.",
 					"dummy",
+					"you deserver to die",
+					"your stupidity is enormous",
 					"next time don't be a dumbass"
 				]);
 				document.querySelector("#screen-correct").classList.add("incorrect");
@@ -97,6 +100,8 @@ function handle_message_event(m) {
 			"Correct!",
 			"You got it right!",
 			"You did it!",
+			"*clap* *clap* *clap* very impressive.",
+			"how incredible.",
 			"You answered correctly!"
 		];
 		
@@ -107,6 +112,7 @@ function handle_message_event(m) {
 			"this is proof that you are stupid",
 			"you're really dumb",
 			"incorrect!",
+			"small brain",
 			"you suck at ka🅱️oot",
 			"as evidenced by the fact that you answered this quesion incorrectly, you are a moron.",
 			"you're mom",
@@ -161,7 +167,10 @@ function answer_question(index) {
 		"sure that was right?",
 		"lucky or smart?",
 		"I bet you're gonna get it wrong because you're stupid",
-		"was that a misclick?"
+		"think you're smart, huh?",
+		"was that a misclick?",
+		"did you double check?",
+		"if you get this wrong you're a failure"
 	];
 	document.querySelector("#condescending-message").innerHTML = randarr(passive_aggressions);
 	show_screen("condescending");

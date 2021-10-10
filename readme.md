@@ -1,5 +1,7 @@
 # ka🅱️oot - kahoot with a twist
 > it has RNG to be extra annoying
+
+
 [kaboot.pages.dev](https://kaboot.pages.dev)
 that's it.
 leave the game url blank for the default game.

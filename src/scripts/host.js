@@ -76,7 +76,6 @@ var listener = {
 };
 
 async function start_game() {
-	// TODO: game URL
 	let gameurl = document.querySelector("#gameurl").value || "test_game.json";
 	game = await fetch(gameurl).then(a => a.json());
 	game_pin = Math.floor(Math.random() * 10000000);
@@ -194,7 +193,7 @@ function next_question() {
 	
 	setTimeout(() => {
 		document.querySelector("#screen-questionanswers").innerHTML = "";
-		fill_template("answers-template", game[current_question], "screen-questionanswers");
+		fill_template("answers-template", game[current_question], "screen-questionanswers", {noEscape: true});
 		show_screen("questionanswers");
 		pubnub.signal({
 			channel: game_pin + "events",

@@ -31,7 +31,8 @@ var listener = {
 					score: 0,
 					correct: [],
 					correctcount: 0,
-					key
+					key,
+					streak: 0
 				};
 				
 				pubnub.subscribe({
@@ -66,7 +67,10 @@ var listener = {
 					// flip answer correctness randomly
 					if (Math.random() > 0.653) users[m.message.username].correct[current_question] = !users[m.message.username].correct[current_question];
 					answer_times[m.message.username] = time_left;
-					if (users[m.message.username].correct[current_question]) users[m.message.username].correctcount++;
+					if (users[m.message.username].correct[current_question]) {
+						users[m.message.username].correctcount++;
+						users[m.message.username].streak++;
+					}
 					current_answers++;
 					if (current_answers == Object.keys(users).length) end_question();
 				}
@@ -100,7 +104,7 @@ function end_question() {
 				channel: game_pin + i + "answer_right",
 				message: users[i].correct[current_question] ? 2 : 1
 			});
-			users[i].score += users[i].correct[current_question] * answer_times[i] * 50  * Math.random();
+			users[i].score += users[i].correct[current_question] * answer_times[i] * 50  * Math.random() * (users[i].streak + 1);
 		}
 		else {
 			pubnub.signal({
@@ -108,6 +112,7 @@ function end_question() {
 				message: "0"
 			});		
 			users[i].correct[current_question] = false; // now they can't answer late
+			users[i].streak = 0;
 		}
 	}
 	

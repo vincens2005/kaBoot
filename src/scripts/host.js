@@ -79,10 +79,16 @@ var listener = {
 	}
 };
 
+async function generate_gamepin() {
+	let wordlist = await fetch("no_no_words.txt").then(a => a.text());
+	wordlist = wordlist.split("\n");
+	return randarr(wordlist).trim() + "_" + randarr(wordlist).trim();
+}
+
 async function start_game() {
 	let gameurl = document.querySelector("#gameurl").value || "test_game.json";
 	game = await fetch(gameurl).then(a => a.json());
-	game_pin = Math.floor(Math.random() * 10000000);
+	game_pin = await generate_gamepin();
 	pubnub = new PubNub({
 		publishKey: "pub-c-cd07b990-56dd-4e2a-9f38-5ed2bf3d968c",
 		subscribeKey: "sub-c-d12759ae-2136-11ec-8d5d-a65b09ab59bc"

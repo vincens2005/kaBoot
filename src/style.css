@@ -28,19 +28,34 @@ body {
 	left: 0;
 }
 
-.correct {
+a {
+	color: var(--blue-color);
+	text-decoration: none;
+	font-weight: bold;
+	transition: 0.2s;
+}
+
+a:not([class]):hover {
+	color: var(--incorrect-color);
+}
+
+.nomargin {
+	margin: 0;
+}
+
+.correct, .answer-3 {
 	background: var(--correct-color);
 }
 
-.incorrect {
+.incorrect, .answer-0 {
 	background: var(--incorrect-color);
 }
 
-.blue {
+.blue, .answer-1 {
 	background: var(--blue-color);
 }
 
-.yellow {
+.yellow, .answer-2 {
 	background: var(--yellow-color);
 }
 
@@ -144,6 +159,36 @@ input:focus {
 	border: 0.125rem solid var(--black-color);
 }
 
+
+input[type=checkbox] {
+	width: 25px;
+	height: 25px;
+	border: 0.125rem solid white;
+	border-radius: 5px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.left-text {
+	text-align: left;
+}
+
+.numberinput {
+	width: 2em !important;
+}
+
+.answerinput, .answerinput:focus {
+	width: 80%;
+	background: transparent;
+	color: white;
+	border: none;
+	border-radius: 0;
+}
+
+.answerinput:focus {
+	border-bottom: 0.125rem solid white;
+}
+
 .blacktext {
 	color: #21202c;
 }
@@ -162,7 +207,7 @@ input:focus {
 	padding: 10px;
 }
 
-.button:not(:last-child) {
+:not(#playernames) > .button:not(:last-child) {
 	margin-bottom: 10px;
 }
 

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height" />
+	
+		<script src="scripts/editor.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<title>
+				editor - ka🅱️oot
+		</title>
+	</head>
+	<body>
+		<script type="text/x-handlebars-template" id="question-template">
+			<div class="button controlbutton" onclick="show_screen('questions')">
+				Save
+			</div>
+			<h2>
+				<input class="answerinput numberinput" value="{{timelimit}}" id="timelimit" oninput="updatescreen()">
+				<input class="answerinput left-text" placeholder="question" id="question" value="{{question}}" oninput="updatescreen()">
+			</h2>
+			<div class="answer_cont">
+				{{#each answers}}
+					<div class="answerbutton answer-{{@index}}">
+						<input class="answerinput" placeholder="answer" value="{{this.text}}" id="answer-{{@index}}" oninput="updatescreen()">
+						<input type="checkbox" id="checkbox-{{@index}}" oninput="updatescreen()" 
+						{{#if this.correct}}
+							checked
+						{{/if}}>
+					</div>
+				{{/each}}
+			</div>
+		</script>
+		<script id="questions-template" type="text/x-handlebars-template">
+			<div class="button controlbutton" onclick="show_screen('gamecode')">
+				Get code
+			</div>
+			<div id="playernames">
+				{{#each game}}
+					<div class="button" onclick="edit_question({{@index}})">
+						{{@index}}
+					</div>
+				{{/each}}
+				<div class="button" onclick="edit_question({{game.length}})">
+						+ new
+				</div>
+			</div>
+		</script>
+		
+		<script id="gamecode-template" type="text/x-handlebars-template">
+			<div class="button controlbutton" onclick="show_screen('questions')">
+				back
+			</div>
+			<div>
+				<h1 class="nomargin">
+					Here's your ka🅱️oot
+				</h1>
+				<span>
+					You can put this up on
+					<a href="https://gist.github.com/" target="_blank">
+						GitHub Gists
+					</a>
+					or a similar service for easy access
+				</span>
+				<div class="form">
+					<div class="button" onclick="copygame()" id="copybutton">
+						Copy JSON
+					</div>
+				</div>
+			</div>
+		</script>
+		
+		<div class="screen purple hidden" id="screen-question">
+		</div>
+		<div class="screen purple hidden" id="screen-questions">
+			
+		</div>
+		
+		<div class="screen purple hidden" id="screen-gamecode">
+			
+		</div>
+		
+		<div class="screen purple" id="screen-start">
+			<div>
+				<h1>
+					Create a ka🅱️oot
+				</h1>
+				<div class="form">
+					<input placeholder="URL (blank for new game)" id="gameurl" onkeypress="checkinput(event)">
+					<div class="button" onclick="init()">
+						Let's go!
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -35,18 +35,11 @@
 				{{/if}}
 			</h3>
 			<div class="answer_cont">
-				<div class="answerbutton incorrect" id="ans-0">
-					{{answers.[0]}}
-				</div>
-				<div class="answerbutton blue" id="ans-1">
-					{{answers.[1]}}
-				</div>
-				<div class="answerbutton yellow" id="ans-2">
-					{{answers.[2]}}
-				</div>
-				<div class="answerbutton correct" id="ans-3">
-					{{answers.[3]}}
-				</div>
+				{{#each answers}}
+					<div class="answerbutton answer-{{@index}}" id="ans-{{@index}}">
+						{{this}}
+					</div>
+				{{/each}}
 			</div>
 		</script>
 		

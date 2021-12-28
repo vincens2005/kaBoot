@@ -163,7 +163,8 @@ function show_scoreboard() {
 		"dummies:",
 		"idiot list",
 		"Below people are stupid",
-		"losers"
+		"losers",
+		"tonight's top idiots:"
 	]);
 	document.querySelector("#scoreboard").innerHTML = "";
 	fill_template("scoreboard-template", {players}, "scoreboard");
@@ -184,7 +185,8 @@ function end_game() {
 		"I hate " + players[0].name,
 		"you're all dumbasses, but " + players[0].name + " is the least so",
 		players[0].name + " won!",
-		"the overachiever of the day is " + players[0].name
+		"the overachiever of the day is " + players[0].name,
+		"tonight's top dumbass was " + players[0].name
 	]);
 	document.getElementById("winner-score").innerHTML = Math.floor(winner.score) + " - " + winner.correctcount + " out of " + game.length;
 	show_screen("winner");

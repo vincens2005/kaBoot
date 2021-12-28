@@ -86,6 +86,7 @@ function handle_message_event(m) {
 					"you are stupid.",
 					"you are a dumbass.",
 					"dummy",
+					"dumbass",
 					"you deserver to die",
 					"your stupidity is enormous",
 					"next time don't be a dumbass"
@@ -102,7 +103,8 @@ function handle_message_event(m) {
 			"You did it!",
 			"*clap* *clap* *clap* very impressive.",
 			"how incredible.",
-			"You answered correctly!"
+			"You answered correctly!",
+			"smort"
 		];
 		
 		let wrong_answers = [
@@ -118,14 +120,16 @@ function handle_message_event(m) {
 			"you're mom",
 			"your dumbassery levels are inordinately high",
 			"fuckwit",
-			"hey shitass, wanna see me speedrun?"
+			"how stupid can you be????",
+			"how is it possible that enough sheer stupidity fit into your tiny brain to get this question wrong?"
 		];
 		
 		let slow_answers = [
 			"too slow!",
 			"you didn't answer",
 			"what took you so long?",
-			"you are dumb"
+			"you are dumb",
+			"hey shitass, wanna see me speedrun?"
 		];
 		document.querySelector("#screen-correct").classList.remove("incorrect");
 		document.querySelector("#screen-correct").classList.remove("correct");
@@ -170,7 +174,9 @@ function answer_question(index) {
 		"think you're smart, huh?",
 		"was that a misclick?",
 		"did you double check?",
-		"if you get this wrong you're a failure"
+		"if you get this wrong you're a failure",
+		"you better have gotten this one right",
+		"today we find out just how dumb you are!"
 	];
 	document.querySelector("#condescending-message").innerHTML = randarr(passive_aggressions);
 	show_screen("condescending");

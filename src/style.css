@@ -169,6 +169,11 @@ input[type=checkbox] {
 	cursor: pointer;
 }
 
+label {
+	color: var(--black-color);
+	font-size: 1.4em;
+}
+
 .left-text {
 	text-align: left;
 }

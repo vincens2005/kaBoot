@@ -80,6 +80,9 @@ var listener = {
 };
 
 async function generate_gamepin() {
+	if (document.querySelector("#sfwgamepin").checked) {
+		return Math.floor(Math.random() * 10000000);
+	}
 	let wordlist = await fetch("no_no_words.txt").then(a => a.text());
 	wordlist = wordlist.split("\n");
 	return randarr(wordlist).trim() + "_" + randarr(wordlist).trim();

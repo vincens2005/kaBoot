@@ -72,6 +72,9 @@ function handle_message_event(m) {
 					"your brain is slightly more advanced than those of the rest of the people in the room",
 					"you have slightly mediocre intelligence levels",
 					"I'm not very impressed.",
+					"Nothing you do will be enough",
+					"Your parents still don't love you",
+					"deez nuts",
 					"you have won."
 				]);
 				document.querySelector("#screen-correct").classList.add("correct");
@@ -109,6 +112,8 @@ function handle_message_event(m) {
 		
 		let wrong_answers = [
 			"you are a dumbass",
+			"just git gud",
+			"you should kill yourself, NOW",
 			"idiot!!!",
 			"you got it wrong",
 			"this is proof that you are stupid",

@@ -62,7 +62,7 @@ function handle_message_event(m) {
 			show_screen("condescending");
 		}
 		if (m.message.startsWith("winner:")) {
-			let winner = atob(m.message.split("winner:")[1]);
+			let winner = decodeURIComponent(atob(m.message.split("winner:")[1]));
 			document.querySelector("#screen-correct").classList.remove("incorrect");
 			document.querySelector("#screen-correct").classList.remove("correct");
 			if (winner == username) {

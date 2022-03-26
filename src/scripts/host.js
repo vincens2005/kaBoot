@@ -175,7 +175,7 @@ function end_game() {
 	let players = get_top_players();
 	pubnub.signal({
 		channel: game_pin + "events",
-		message: "winner:" + btoa(players[0].name) // this is genius
+		message: "winner:" + btoa(encodeURIComponent(players[0].name)) // this is genius
 	});
 	let winner = users[players[0].name];
 	document.querySelector("#winner-message").innerText = randarr([

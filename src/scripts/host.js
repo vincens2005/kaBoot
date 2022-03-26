@@ -113,7 +113,7 @@ function end_question() {
 				channel: game_pin + i + "answer_right",
 				message: users[i].correct[current_question] ? 2 : 1
 			});
-			users[i].score += users[i].correct[current_question] * answer_times[i] * 50  * Math.random() * (users[i].streak + 1);
+			users[i].score += users[i].correct[current_question] * answer_times[i] * 50  * Math.random() * (users[i].streak / 5 + 1);
 		}
 		else {
 			pubnub.signal({
